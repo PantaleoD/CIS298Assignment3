@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  fragement_wine.xml  DETAIL VIEW OF EACH WINE ITEMS THAT IS EDITABLE -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"  >
+                                    <!-- Name of Co -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Drink it up!"
+        android:padding="4dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+       />
+
+                                    <!-- description of wine -->
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:text="Description"
+        style="?android:listSeparatorTextViewStyle"
+        android:padding="4dp"/>
+
+                                    <!--   LINE FOR ID LABEL AND VALUE -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text = "@string/id_label"
+           android:padding="@dimen/activity_horizontal_margin"             />
+
+                                                <!-- wine id integer-->
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/wine_id"
+            android:hint="@string/wine_id_hint"/>
+
+    </LinearLayout>
+
+                        <!--   LINE FOR PACK LABEL AND VALUE -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal">
+                                    <!--  pack size label from string -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "@string/pack_label"
+            android:padding="@dimen/activity_horizontal_margin"           />
+
+                                    <!--  pack size string -->
+        <EditText
+            android:layout_width="232dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pack_size"
+            android:id="@+id/pack_size"/>
+    </LinearLayout>
+
+                                        <!--  CASE PRICE LINE -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal">
+
+                                     <!--  case price label from string -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "@string/price_label"
+            android:padding="@dimen/activity_horizontal_margin"
+            />
+
+        <!--     case price - decimal -->
+        <EditText
+            android:id="@+id/case_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/case_price"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+           />
+    </LinearLayout>
+                              <!--  crime solved boolean-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/active_label"
+            android:padding="@dimen/activity_horizontal_margin"
+           />
+
+        <CheckBox
+            android:id="@+id/currently_active_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="@string/currently_active_item"
+            />
+    </LinearLayout>
+
+</LinearLayout>

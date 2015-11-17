@@ -3,4 +3,20 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+
+    <string name="wine_id">Wine Item #</string>
+    <string name="wine_id_hint">Display of Item #</string>
+
+    <string name="pack_size">Pack Size</string>
+    <string name="case_price">Case Price</string>
+
+    <string name="currently_active_item">Currently Active Item</string>
+
+    <string name="id_label">Id:                </string>
+    <string name="pack_label">Pack:           </string>
+    <string name="price_label">Price:      </string>
+    <string name="active_label">Active:    </string>
+
+
 </resources>

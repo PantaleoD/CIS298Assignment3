@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--    wine_list.xml        THIS IS FOR INITIAL PAGE TO DISPLAY ALL THE THE WINE DESCRIPTIONS, # AND CASE PRICE ONLY  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              >
+                                             <!--    Description  -->
+    <TextView
+        android:id="@+id/list_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Description"
+        android:textStyle="bold"
+        android:padding="4dp"
+        android:layout_alignParentTop="true"
+       />
+                                                <!-- wine id integer-->
+    <TextView
+        android:id="@+id/list_item_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Wine ID"
+        android:layout_below="@+id/list_item_description"
+        android:layout_alignParentLeft="true"
+        android:padding="4dp"
+        />
+                                                     <!-- price -->
+    <TextView
+        android:id="@+id/list_item_case_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_description"
+        tools:text="Case Price"
+        android:layout_alignParentRight="true"
+        android:padding="4dp"
+        />
+</RelativeLayout>
+
+
+
