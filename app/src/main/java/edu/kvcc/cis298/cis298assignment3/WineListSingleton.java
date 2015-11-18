@@ -49,7 +49,6 @@ public class WineListSingleton {
                 } else {
                     isCurrentlyActive = false;
                 }
-
                 mWineItems.add(new WineItem(inputWineNumber, inputDescription, inputPackSize, isCasePriceDouble, isCurrentlyActive));
             }
         }
@@ -62,7 +61,6 @@ public class WineListSingleton {
     }
 
     public List<WineItem> getWineItems(){
-
         return mWineItems;
         }
 
@@ -73,6 +71,6 @@ public class WineListSingleton {
             }
         }
         return  null;
-    }
+     }
    }
 

@@ -78,7 +78,7 @@ public class WineListFragment extends Fragment {
             mDescriptionTextView = (TextView)
                     itemView.findViewById(R.id.list_item_description);
             mCasePriceTextView  = (TextView)
-                    itemView.findViewById(R.id.case_price);
+                    itemView.findViewById(R.id.list_item_case_price);     // &&&&&&&&&&&&&&  chgd from case_price
         }
 
         public void bindWine(WineItem wineItem){
@@ -86,8 +86,11 @@ public class WineListFragment extends Fragment {
             mItemNNumberTextView.setText(mWineItem.getItemNumber());
             mDescriptionTextView.setText(mWineItem.getDescription());
      //       mPackSizeTextView.setText(mWineItem.getPackSize());
-     //       mCasePriceDecimalFormat.setCurrency(mWineItem.getCasePrice());   /// GOTTA CHECK THIS OUT
-            mCasePriceTextView.setText((mWineItem.getCasePrice().toString()));
+     //        mCasePriceDecimalFormat.setCurrency(mWineItem.getCasePrice());   /// GOTTA CHECK THIS OUT
+
+             mCasePriceTextView.setText("$" + mWineItem.getCasePrice());
+     //       String  x = "####.##";
+     //       mCasePriceTextView.setText(x.parse(mWineItem.getCasePrice()));
         }
 
         @Override
@@ -108,7 +111,7 @@ public class WineListFragment extends Fragment {
         public WineHolder onCreateViewHolder(ViewGroup parent, int ViewType){  // SHOULD THIS BE AN INT?
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
             View view = layoutInflater
-                    .inflate(R.layout.wine_list, parent, false);
+                    .inflate(R.layout.wine_list, parent, false);  // &&&&&&&&& CHECK IF wine_list is correct!!!!
             return new WineHolder(view);
         }
 

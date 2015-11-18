@@ -20,20 +20,20 @@ import java.util.List;
 
  public class WinePagerActivity extends FragmentActivity {
 
-        private static final String EXTRA_ID =
-                "edu.kvcc.cis298.cis298assignment3.wine_id";   // PRETTY SURE WINE ITEM IS CORRECT HERE !!!!
+    private static final String EXTRA_ID =
+            "edu.kvcc.cis298.cis298assignment3.wine_id";   // PRETTY SURE WINE ITEM IS CORRECT HERE !!!!
 
-        private ViewPager mViewPager;
-        private List<WineItem> mWineItems;
+    private ViewPager mViewPager;
+    private List<WineItem> mWineItems;
 
-    public static Intent newIntent(Context packageContext, String wine_id ) {   // not sure wine_item_number is correct
+    public static Intent newIntent(Context packageContext, String wine_id) {   // not sure wine_item_number is correct
         Intent intent = new Intent(packageContext, WinePagerActivity.class);
 
         intent.putExtra(EXTRA_ID, wine_id);
         return intent;
     }
 
-    public void onCreate(Bundle savedInstanceState){                            // chged from protected to public
+    public void onCreate(Bundle savedInstanceState) {                            // chged from protected to public
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wine_pager);
 
@@ -41,7 +41,7 @@ import java.util.List;
                 .getStringExtra(EXTRA_ID);
 
         mViewPager = (ViewPager) findViewById(R.id.wine_pager_view);
-         mWineItems = WineListSingleton.get(this).getWineItems();                  // this is method I don't have access to
+        mWineItems = WineListSingleton.get(this).getWineItems();                  // this is method I don't have access to
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
@@ -56,13 +56,14 @@ import java.util.List;
             }
         });
 
-        for (int i = 0; i < mWineItems.size(); i++){
-            if (mWineItems.get(i).getItemNumber().equals(wine_id));
-            mViewPager.setCurrentItem(i);
-            break;
+        for (int i = 0; i < mWineItems.size(); i++) {
+            if (mWineItems.get(i).getItemNumber().equals(wine_id)) {
+                mViewPager.setCurrentItem(i);
+                break;
+            }
         }
-      }
     }
+}
 
 
 

@@ -48,7 +48,7 @@ public class WineFragment extends Fragment {
         super.onCreate(savedInstanceState);
         String itemNum = (String) getArguments().getString(Arg_WINE_ID);
 
-        mWineItem = WineListSingleton.get(getActivity()).getWineItem(itemNum ); // FIX THIS!!!
+        mWineItem = WineListSingleton.get(getActivity()).getWineItem(itemNum); // FIX THIS!!!
     }
 
     @Nullable
@@ -67,7 +67,7 @@ public class WineFragment extends Fragment {
                 mWineItem.setItemNumber(s.toString());
             }
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable editable) {                             // &&&&&&&&&&&CHNGD FORM s to editable
             }
         }) ;
 
@@ -77,8 +77,9 @@ public class WineFragment extends Fragment {
         mPackSize = (EditText)v.findViewById(R.id.pack_size);
         mPackSize.setText(mWineItem.getPackSize().toString());
 
+        
         mCasePrice = (EditText)v.findViewById(R.id.case_price);
-        mCasePrice.setText(mWineItem.getCasePrice().toString());
+        mCasePrice.setText("$" + mWineItem.getCasePrice());
 
        mCurrentlyActive = (CheckBox)v.findViewById(R.id.currently_active_item);
         mCurrentlyActive.setChecked(mWineItem.isCurrentlyActive());
