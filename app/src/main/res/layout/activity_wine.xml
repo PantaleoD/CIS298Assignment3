@@ -1,4 +1,4 @@
-<!--    activity_wine.xml  initial activity screen where fragments will display upon  -->
+
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -13,3 +13,4 @@
         android:layout_height="wrap_content" />
 
 </RelativeLayout>
+    <!--    activity_wine.xml  initial activity screen where fragments will display upon  -->

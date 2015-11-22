@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--  activity_wine_pager.xml       used w/ WinePageActivity to allow user to swipe individual wines  -->
+
 
 <android.support.v4.view.ViewPager
    android:id="@+id/wine_pager_view"
@@ -8,3 +8,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
 
+    <!--  activity_wine_pager.xml       used w/ WinePageActivity to allow user to swipe individual wines  -->
