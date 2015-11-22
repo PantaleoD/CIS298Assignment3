@@ -1,4 +1,4 @@
-// WineListFragment.java            this displays multiple wine items using the Recycler View...to get that...
+// WineListFragment.java     this displays multiple wine items using the Recycler View...to get that...
 //  1st thing:   File - Project Structure - clk app - Dependency tab - + button -
 //                      Library dependency - select the recycler-v7(recyclerview-v7.#.#.#)
 
@@ -22,13 +22,12 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.util.List;
 
-
 /**      * Created by dpantaleo on 11/6/2015.        */
 
 public class WineListFragment extends Fragment {
     private RecyclerView mWineRecyclerView;
 
-
+    String PriceString;                     // **********************
     private WineItemAdapter mAdapter;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +46,7 @@ public class WineListFragment extends Fragment {
         super.onResume();
         updateUI();
     }
-
+//                                               using the activity...acquires the item to display
     private void  updateUI() {
         WineListSingleton wineListSingleton = WineListSingleton.get(getActivity());
         List<WineItem> wineItems = wineListSingleton.getWineItems();
@@ -63,9 +62,7 @@ public class WineListFragment extends Fragment {
     private class WineHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mItemNNumberTextView;
         private TextView mDescriptionTextView;
-    //    private TextView mPackSizeTextView;
         private TextView mCasePriceTextView;
-    //    private CheckBox mCurrentlyActiveCheckBox;
 
         private WineItem mWineItem;
 
@@ -78,7 +75,7 @@ public class WineListFragment extends Fragment {
             mDescriptionTextView = (TextView)
                     itemView.findViewById(R.id.list_item_description);
             mCasePriceTextView  = (TextView)
-                    itemView.findViewById(R.id.list_item_case_price);     // &&&&&&&&&&&&&&  chgd from case_price
+                    itemView.findViewById(R.id.list_item_case_price);
         }
 
         public void bindWine(WineItem wineItem){
@@ -87,7 +84,7 @@ public class WineListFragment extends Fragment {
             mDescriptionTextView.setText(mWineItem.getDescription());
      //       mPackSizeTextView.setText(mWineItem.getPackSize());
      //        mCasePriceDecimalFormat.setCurrency(mWineItem.getCasePrice());   /// GOTTA CHECK THIS OUT
-
+     //       PriceString = mWineItem.getCasePrice().toString();
              mCasePriceTextView.setText("$" + mWineItem.getCasePrice());
      //       String  x = "####.##";
      //       mCasePriceTextView.setText(x.parse(mWineItem.getCasePrice()));
@@ -95,7 +92,6 @@ public class WineListFragment extends Fragment {
 
         @Override
         public void onClick(View v){
-                //    Toast.makeText(getActivity(), mWineItem.getItemNumber() + "Clicked", Toast.LENGTH_SHORT).show();
             Intent intent = WinePagerActivity.newIntent(getActivity(), mWineItem.getItemNumber());
             startActivity(intent);
         }
@@ -108,7 +104,7 @@ public class WineListFragment extends Fragment {
              mWineItems = wineItems;
         }
         @Override
-        public WineHolder onCreateViewHolder(ViewGroup parent, int ViewType){  // SHOULD THIS BE AN INT?
+        public WineHolder onCreateViewHolder(ViewGroup parent, int ViewType){
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
             View view = layoutInflater
                     .inflate(R.layout.wine_list, parent, false);  // &&&&&&&&& CHECK IF wine_list is correct!!!!

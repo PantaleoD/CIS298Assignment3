@@ -1,8 +1,6 @@
 // WinePagerActivity... purpose:   view indiv. items.... by swiping to left or right once 1 is displayed
 //      replaces WineActivity.java
-
 package edu.kvcc.cis298.cis298assignment3;
-
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,15 +12,10 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import java.util.List;
-
-/**     Created by dpantaleo on 11/14/2015  */
-
-
+            /**     Created by dpantaleo on 11/14/2015  */
  public class WinePagerActivity extends FragmentActivity {
-
     private static final String EXTRA_ID =
             "edu.kvcc.cis298.cis298assignment3.wine_id";   // PRETTY SURE WINE ITEM IS CORRECT HERE !!!!
-
     private ViewPager mViewPager;
     private List<WineItem> mWineItems;
 

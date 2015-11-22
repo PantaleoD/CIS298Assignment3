@@ -1,5 +1,5 @@
-// WineListSingleton.java   this is the Singleton to create the data for the WineItem's -
-//                  one time only (private constructor called from this class)
+// WineListSingleton.java   this is the Singleton to place the data file data into the
+//                          WineItem's - List/ArrayList  - 1 time only (private constructor called from this class)
 package edu.kvcc.cis298.cis298assignment3;
 import android.content.Context;
 import android.util.Log;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
-        /**              * Created by dpantaleo on 11/6/2015.            */
+                   /**              * Created by dpantaleo on 11/6/2015.            */
 public class WineListSingleton {
     private static WineListSingleton sWineListSingleton;
     private List<WineItem> mWineItems;      // list/array is plural

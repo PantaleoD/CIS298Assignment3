@@ -1,4 +1,5 @@
-// WineListActivity - purpose...needed to show list o fall items.... ok...not sure why!
+// WineListActivity.java - purpose...needed to show list of all items....
+//                         this houses the WineListFragment
 
 package edu.kvcc.cis298.cis298assignment3;
 

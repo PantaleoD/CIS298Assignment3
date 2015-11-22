@@ -1,12 +1,11 @@
 /*    WineFragment.java
-                   to ....  show a Wine Item based on the Item Number selected
+                   to ....  shows one Wine Item based on the Item Number selected
+                   should be editable values - currently...all but name
  */
 
 package edu.kvcc.cis298.cis298assignment3;
-
 import android.app.Activity;
 import android.net.Uri;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,9 +20,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * Created by dpantaleo on 11/5/2015.    created to extend fragment and show wine item
- */
+/**     Created by dpantaleo on 11/5/2015.    created to extend fragment and show wine item */
 public class WineFragment extends Fragment {
 
     private  static final String Arg_WINE_ID = "wine_id";    // this is KEY for Bundle & used to retrieve from the Bundle
@@ -62,10 +59,12 @@ public class WineFragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mWineItem.setItemNumber(s.toString());
             }
+
             @Override
             public void afterTextChanged(Editable editable) {                             // &&&&&&&&&&&CHNGD FORM s to editable
             }
@@ -77,13 +76,32 @@ public class WineFragment extends Fragment {
         mPackSize = (EditText)v.findViewById(R.id.pack_size);
         mPackSize.setText(mWineItem.getPackSize().toString());
 
-        
         mCasePrice = (EditText)v.findViewById(R.id.case_price);
-        mCasePrice.setText("$" + mWineItem.getCasePrice());
+        mCasePrice.setText(mWineItem.getCasePrice().toString());
+/*
+mCasePrice.addTextChangedListener(new TextWatcher() {
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        String casepricestring = s.subSequence(1,s.length()).toString();
+        mWineItem.setCasePrice(Double.parseDouble(casepricestring));
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+});
+        mCasePrice = (EditText)v.findViewById(R.id.case_price);
+        mCasePrice.setText("$" + mWineItem.getCasePrice()); */
 
        mCurrentlyActive = (CheckBox)v.findViewById(R.id.currently_active_item);
-        mCurrentlyActive.setChecked(mWineItem.isCurrentlyActive());
-        mCurrentlyActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+       mCurrentlyActive.setChecked(mWineItem.isCurrentlyActive());
+
+       mCurrentlyActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton  compoundButton, boolean isCurrentlyActive){
                 mWineItem.setCurrentlyActive(isCurrentlyActive);   }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- activity_fragment     to allow fragments to be displayed on an activty  -->
+<!-- activity_fragment.xml     to allow fragments to be displayed on an activty  -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/fragment_container"

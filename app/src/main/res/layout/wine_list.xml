@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--    wine_list.xml        THIS IS FOR INITIAL PAGE TO DISPLAY ALL THE THE WINE DESCRIPTIONS, # AND CASE PRICE ONLY  -->
+
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
@@ -43,3 +43,4 @@
 
 
 
+    <!--    wine_list.xml        THIS IS FOR INITIAL PAGE TO DISPLAY ALL THE THE WINE DESCRIPTIONS, # AND CASE PRICE ONLY  -->

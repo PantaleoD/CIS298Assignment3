@@ -10,9 +10,8 @@ import java.util.UUID;
 
 /**
  * Created by dpantaleo on 11/5/2015.
- * description of each wine Item which includes   Item #, Description, Pack Sz, Case Price & if currently active
- *      all of which is input from a .csv data file called wines
- */
+ * description of each wine Item which includes   Item #, Description, Pack Sz, Case Price &
+ *                     checkbox if currently active all of which is input from a .csv data file called wines */
 public class WineItem {
     private String mItemNumber;
     private String mDescription;
