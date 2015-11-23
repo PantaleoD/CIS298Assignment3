@@ -49,7 +49,7 @@ import java.util.List;
             }
         });
 
-        for (int i = 0; i < mWineItems.size(); i++) {
+        for (int i = 0; i < mWineItems.size(); i++) {           // used w/pager to get the 'correct' id to show
             if (mWineItems.get(i).getItemNumber().equals(wine_id)) {
                 mViewPager.setCurrentItem(i);
                 break;

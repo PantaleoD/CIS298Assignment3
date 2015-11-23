@@ -5,23 +5,23 @@
 
 package edu.kvcc.cis298.cis298assignment3;
 
-import java.text.DecimalFormat;
-import java.util.UUID;
+        import java.text.DecimalFormat;
+        import java.util.UUID;
 
 /**
  * Created by dpantaleo on 11/5/2015.
  * description of each wine Item which includes   Item #, Description, Pack Sz, Case Price &
  *                     checkbox if currently active all of which is input from a .csv data file called wines */
 public class WineItem {
-    private String mItemNumber;
+    private String mItemNumber;                         // backing fields (private instance variables)
     private String mDescription;
     private String mPackSize;
     private double mCasePrice;
     private boolean mCurrentlyActive;
 
-    public WineItem() {              // EMPTY CONSTRUCTOR
-            }
-                                    // PARAMETERIZED CONSTRUCTOR FOR INPUT FROM DATA FILE
+    public WineItem() {                                  // EMPTY CONSTRUCTOR
+    }
+    // PARAMETERIZED CONSTRUCTOR FOR INPUT FROM DATA FILE
     public WineItem(String itemNumber, String description, String packSize,
                     double casePrice, boolean currentlyActive) {
         mItemNumber = itemNumber;
@@ -29,9 +29,9 @@ public class WineItem {
         mPackSize = packSize;
         mCasePrice = casePrice;
         mCurrentlyActive = currentlyActive;
-     }
+    }
     // getters and setters: - rt click - generate - getters & setters
-   //                                                  GETTERS and SETTERS
+    //                                                  GETTERS and SETTERS
     public String getItemNumber() {                // Item#
         return mItemNumber;
     }
@@ -56,7 +56,7 @@ public class WineItem {
         mPackSize = packSize;
     }
 
-    public Double getCasePrice() {
+    public Double getCasePrice() {             // case price
         return mCasePrice;
     }
 

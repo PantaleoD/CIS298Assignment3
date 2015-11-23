@@ -1,8 +1,8 @@
 /*    WineFragment.java
                    to ....  shows one Wine Item based on the Item Number selected
-                   should be editable values - currently...all but name
+                   should be editable values - currently...all but name is editable...I left id as editable for
+                   display purposes back in the list view although I know it shouldn't be
  */
-
 package edu.kvcc.cis298.cis298assignment3;
 import android.app.Activity;
 import android.net.Uri;
@@ -49,10 +49,12 @@ public class WineFragment extends Fragment {
     }
 
     @Nullable
-    @Override
+    @Override                            // for display of values in fragrment...1 field per line
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
-        mItemNumber = (TextView)v.findViewById(R.id.wine_id);                      // I"M NOST SURE wine_id is RIGHT!
+
+        
+        mItemNumber = (TextView)v.findViewById(R.id.wine_id);           // find by wine_id...to locate record in array
         mItemNumber.setText(mWineItem.getItemNumber());
 
         mItemNumber.addTextChangedListener(new TextWatcher() {
@@ -66,47 +68,51 @@ public class WineFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {                             // &&&&&&&&&&&CHNGD FORM s to editable
-            }
+            public void afterTextChanged(Editable editable) {   }
+
         }) ;
 
-        mDescription = (EditText)v.findViewById(R.id.description);
+        mDescription = (EditText)v.findViewById(R.id.description);         // description
         mDescription.setText(mWineItem.getDescription());
 
-        mPackSize = (EditText)v.findViewById(R.id.pack_size);
+        mPackSize = (EditText)v.findViewById(R.id.pack_size);              // pack size
         mPackSize.setText(mWineItem.getPackSize().toString());
 
-        mCasePrice = (EditText)v.findViewById(R.id.case_price);
+        mCasePrice = (EditText)v.findViewById(R.id.case_price);            // case price
         mCasePrice.setText(mWineItem.getCasePrice().toString());
-/*
-mCasePrice.addTextChangedListener(new TextWatcher() {
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
 
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-        String casepricestring = s.subSequence(1,s.length()).toString();
-        mWineItem.setCasePrice(Double.parseDouble(casepricestring));
+        mCasePrice.addTextChangedListener(new TextWatcher() {                 // listener for price change
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {    }
+
+        @Override                                                     // price is double...cast to string, test if value left for price & if so
+        public void onTextChanged(CharSequence s, int start, int before, int count) {   // will return value, else returns zero
+        String casepricestring = s.toString();
+        if (count > 0) {
+            mWineItem.setCasePrice(Double.parseDouble(casepricestring));
+        }
+        else
+        {
+            mWineItem.setCasePrice(0);
+        }
     }
 
     @Override
     public void afterTextChanged(Editable editable) {
-
     }
 });
-        mCasePrice = (EditText)v.findViewById(R.id.case_price);
-        mCasePrice.setText("$" + mWineItem.getCasePrice()); */
 
-       mCurrentlyActive = (CheckBox)v.findViewById(R.id.currently_active_item);
+
+       mCurrentlyActive = (CheckBox)v.findViewById(R.id.currently_active_item);     // checkbox... display & check if checkbox is changed
        mCurrentlyActive.setChecked(mWineItem.isCurrentlyActive());
 
-       mCurrentlyActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton  compoundButton, boolean isCurrentlyActive){
-                mWineItem.setCurrentlyActive(isCurrentlyActive);   }
-            });
-        return v; }
+       mCurrentlyActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean isCurrentlyActive) {
+               mWineItem.setCurrentlyActive(isCurrentlyActive);
+           }
+       });
+        return v; }                                                          // returns the view to the activity for display
 }
 
 

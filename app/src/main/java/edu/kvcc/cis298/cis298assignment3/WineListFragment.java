@@ -1,6 +1,6 @@
-// WineListFragment.java     this displays multiple wine items using the Recycler View...to get that...
-//  1st thing:   File - Project Structure - clk app - Dependency tab - + button -
-//                      Library dependency - select the recycler-v7(recyclerview-v7.#.#.#)
+// WineListFragment.java       this displays multiple wine items using the Recycler View...to get that...
+//  1st thing:                           File - Project Structure - clk app - Dependency tab - + button -
+//                                       Library dependency - select the recycler-v7(recyclerview-v7.#.#.#)
 
 
 package edu.kvcc.cis298.cis298assignment3;
@@ -24,7 +24,7 @@ import java.util.List;
 
 /**      * Created by dpantaleo on 11/6/2015.        */
 
-public class WineListFragment extends Fragment {
+public class WineListFragment extends Fragment {            // inherits from Fragment in support library imported
     private RecyclerView mWineRecyclerView;
 
     String PriceString;                     // **********************
@@ -32,21 +32,21 @@ public class WineListFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wine_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_wine_list, container, false);  // fragments inflate in onCreateView
 
         mWineRecyclerView = (RecyclerView) view
-                .findViewById(R.id.wine_recycler_view);
+                .findViewById(R.id.wine_recycler_view);           // allows for paging up/down in list view without losing values
 
         mWineRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        updateUI();
+        updateUI();                                               // calls method to acquire data from Singleton (data area)
         return view;
     }
 
-    public void onResume(){
+    public void onResume(){                                  // with resume...update data again
         super.onResume();
         updateUI();
     }
-//                                               using the activity...acquires the item to display
+//                                                               using the activity...acquires the item to display
     private void  updateUI() {
         WineListSingleton wineListSingleton = WineListSingleton.get(getActivity());
         List<WineItem> wineItems = wineListSingleton.getWineItems();
@@ -66,7 +66,7 @@ public class WineListFragment extends Fragment {
 
         private WineItem mWineItem;
 
-        public WineHolder(View itemView) {
+        public WineHolder(View itemView) {                          // to show the data as needed
             super(itemView);
             itemView.setOnClickListener(this);
 
@@ -78,16 +78,14 @@ public class WineListFragment extends Fragment {
                     itemView.findViewById(R.id.list_item_case_price);
         }
 
-        public void bindWine(WineItem wineItem){
+        public void bindWine(WineItem wineItem){                     // sets view to see data
             mWineItem = wineItem;
             mItemNNumberTextView.setText(mWineItem.getItemNumber());
             mDescriptionTextView.setText(mWineItem.getDescription());
-     //       mPackSizeTextView.setText(mWineItem.getPackSize());
-     //        mCasePriceDecimalFormat.setCurrency(mWineItem.getCasePrice());   /// GOTTA CHECK THIS OUT
-     //       PriceString = mWineItem.getCasePrice().toString();
-             mCasePriceTextView.setText("$" + mWineItem.getCasePrice());
-     //       String  x = "####.##";
-     //       mCasePriceTextView.setText(x.parse(mWineItem.getCasePrice()));
+
+            String casepricestring = mWineItem.getCasePrice().toString();
+     //        mCasePriceTextView.setText( mWineItem.getCasePrice());
+                 mCasePriceTextView.setText(casepricestring);
         }
 
         @Override
